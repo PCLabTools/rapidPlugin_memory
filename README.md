@@ -1,2 +1,2 @@
-# rapidPlugin_template
-rapidPlugin template to help create plugins for the rapidRTOS framework
+# rapidPlugin_memory
+rapidPlugin_memory helps manage an EEPROM for the rapidRTOS framework

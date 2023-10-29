@@ -6,7 +6,7 @@
 # Class (KEYWORD1)
 #######################################
 
-rapidplugin_template  KEYWORD1
+rapidPlugin_memory  KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -21,4 +21,4 @@ cmd KEYWORD2
 # Constants (LITERAL1)
 #######################################
 
-rapidPlugin_template_h  LITERAL1
+rapidPlugin_memory_h  LITERAL1

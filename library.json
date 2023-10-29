@@ -1,16 +1,21 @@
 {
-  "name": "rapidPlugin_template",
+  "name": "rapidPlugin_memory",
   "version": "1.0.1",
-  "description": "rapidPlugin for the rapidRTOS framework",
+  "description": "rapidPlugin to help manage an EEPROM for the rapidRTOS framework",
   "keywords": "rapidRTOS, FreeRTOS, RTOS, rapid, arduino",
   "repository":
   {
     "type": "git",
-    "url": "https://github.com/PCLabTools/rapidPlugin_template"
+    "url": "https://github.com/PCLabTools/rapidPlugin_memory"
   },
   "dependencies":
   {
-      "rapidRTOS": "https://github.com/PCLabTools/rapidRTOS.git"
+      "rapidRTOS": "https://github.com/PCLabTools/rapidRTOS.git",
+      "EEPROManager": "https://github.com/PCLabTools/EEPROManager.git"
+  },
+  "build":
+  {
+    "extraScript": "build.py"
   },
   "authors":
   [
@@ -21,7 +26,7 @@
     }
   ],
   "license": "GNU",
-  "homepage": "https://github.com/PCLabTools/rapidPlugin_template",
+  "homepage": "https://github.com/PCLabTools/rapidPlugin_memory",
   "frameworks": "arduino",
   "platforms": "https://github.com/maxgerhardt/platform-raspberrypi.git"
 }
