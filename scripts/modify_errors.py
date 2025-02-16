@@ -11,8 +11,8 @@ header = '''/**
  * 
  */
 
-#ifndef ERRORS_H
-#define ERRORS_H
+#ifndef errors_h
+#define errors_h
 
 /**
  * @brief 
@@ -59,7 +59,7 @@ void setCurrentError(rapidPluginErrors_t error)
   currentError.error = error;
 }
 
-#endif // ERRORS_H
+#endif // errors_h
 '''
 
 try:
