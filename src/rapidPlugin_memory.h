@@ -27,6 +27,7 @@ class rapidPlugin_memory : public rapidPlugin
 
   private:
     static void main_loop(void*);
+    uint8_t interface(rapidFunction incoming, char messageBuffer[]);
     uint32_t _count = 0;
 };
 
