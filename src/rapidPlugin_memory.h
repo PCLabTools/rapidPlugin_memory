@@ -13,7 +13,6 @@
 #define rapidPlugin_memory_h
 
 #include "rapidRTOS.h"
-#include "memory.h"
 
 /**
  * @brief rapidPlugin top level description
@@ -67,6 +66,7 @@ BaseType_t rapidPlugin_memory::runCore(BaseType_t core)
   return rapidPlugin::runCore(core, &main_loop);
 }
 
+#ifndef rapidPlugin_memory_override_main_loop
 /**
  * @brief Main loop task responsible for monitoring memory and updating EEPROM if changed
  * 
@@ -81,5 +81,37 @@ void rapidPlugin_memory::main_loop(void* pModule)
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
-
 #endif
+
+#ifndef rapidPlugin_memory_override_interface
+/**
+ * @brief Interface handler extended functions.
+ * This function is to be used for creating custom states 
+ * that are called when rapidFunction commands are received
+ * 
+ * @param incoming message broken into 2 strings: function and parameters
+ * @param messageBuffer buffer to store return message
+ * @return uint8_t return 0 if the function was handled, 1 if not
+ */
+uint8_t rapidPlugin_memory::interface(rapidFunction incoming, char messageBuffer[])
+{
+  do
+  {
+    if (!strcmp(incoming.function, "random"))
+    {
+      int min = 0, max = 0;
+      sscanf(incoming.parameters, "%d,%d", &min, &max);
+      int result = rand() % (max - min) + min;
+      sprintf(messageBuffer, "random_example(%d,%d) = %d", min, max, result);
+      continue;
+    }
+    rapidPlugin::interface(incoming, messageBuffer);
+    return 0;
+  } while (false);
+  return 1;
+}
+#endif
+
+#include "memory.h"
+
+#endif // rapidPlugin_memory_h
