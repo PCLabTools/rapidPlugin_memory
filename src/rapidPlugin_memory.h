@@ -98,12 +98,22 @@ uint8_t rapidPlugin_memory::interface(rapidFunction incoming, char messageBuffer
 {
   do
   {
-    if (!strcmp(incoming.function, "random"))
+    if (!strcmp(incoming.function, "force"))
     {
-      int min = 0, max = 0;
-      sscanf(incoming.parameters, "%d,%d", &min, &max);
-      int result = rand() % (max - min) + min;
-      sprintf(messageBuffer, "random_example(%d,%d) = %d", min, max, result);
+      manageMemory.force();
+      sprintf(messageBuffer, "memory_force()");
+      continue;
+    }
+    if (!strcmp(incoming.function, "reset"))
+    {
+      manageMemory.reset();
+      sprintf(messageBuffer, "memory_reset()");
+      continue;
+    }
+    if (!strcmp(incoming.function, "wipe"))
+    {
+      manageMemory.wipe();
+      sprintf(messageBuffer, "memory_wipe()");
       continue;
     }
     rapidPlugin::interface(incoming, messageBuffer);

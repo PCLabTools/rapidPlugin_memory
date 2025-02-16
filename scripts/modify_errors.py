@@ -72,7 +72,7 @@ try:
     else:
       with open(FILEPATH_ERRORS_H, "w") as f_write:
         for line in lines:
-          if line.strip() == footer.strip():
+          if line.strip() == footer.split('\n')[0].strip():
             f_write.write(custom_errors)
           f_write.write(line)
       print(info + '\'errors.h\' updated with memory custom errors')
