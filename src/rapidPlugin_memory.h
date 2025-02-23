@@ -12,6 +12,14 @@
 #ifndef rapidPlugin_memory_h
 #define rapidPlugin_memory_h
 
+#ifndef rapidPlugin_memory_stack_size
+#define rapidPlugin_memory_stack_size 128
+#endif
+
+#ifndef rapidPlugin_memory_interface_stack_size
+#define rapidPlugin_memory_interface_stack_size 256
+#endif
+
 #include "rapidRTOS.h"
 
 /**
@@ -50,7 +58,7 @@ rapidPlugin_memory::rapidPlugin_memory(const char* identity)
 BaseType_t rapidPlugin_memory::run()
 {
   manageMemory.synchronise();
-  return rapidPlugin::run(&main_loop);
+  return rapidPlugin::run(&main_loop, rapidPlugin_memory_stack_size, rapidPlugin_memory_interface_stack_size);
 }
 
 /**
@@ -64,7 +72,7 @@ BaseType_t rapidPlugin_memory::run()
 BaseType_t rapidPlugin_memory::runCore(BaseType_t core)
 {
   manageMemory.synchronise();
-  return rapidPlugin::runCore(core, &main_loop);
+  return rapidPlugin::runCore(core, &main_loop, rapidPlugin_memory_stack_size, rapidPlugin_memory_interface_stack_size);
 }
 
 #ifndef rapidPlugin_memory_override_main_loop
