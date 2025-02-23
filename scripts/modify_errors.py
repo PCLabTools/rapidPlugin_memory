@@ -20,14 +20,15 @@ header = '''/**
  */
 enum class rapidPluginErrors_t
 {
-  NO_ERROR = 0,             // No error has occured
-  UNKNOWN_ERROR,            // Unknown error is a catch to be used when no other error is applicable
+  NO_ERROR = 0,                     // No error has occured
+  UNKNOWN_ERROR,                    // Unknown error is a catch to be used when no other error is applicable
 '''
 
-custom_errors = '''  // memory ERRORS
-  NO_NVM,                 // memory error 1
-  NVM_FULL,               // memory error 2
-  NVM_CORRUPT,            // memory error 3
+custom_errors = '''
+  // memory ERRORS
+  NO_NVM,                           // No non-volatile memory available (EEPROM/flash)
+  NVM_FULL,                         // Non-voltile memory is full
+  NVM_CORRUPT,                      // Non-voltile memory is corrupt
 '''
 
 footer = '''};

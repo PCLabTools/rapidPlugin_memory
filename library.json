@@ -1,6 +1,6 @@
 {
   "name": "rapidPlugin_memory",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "rapidPlugin to help manage an EEPROM for the rapidRTOS framework",
   "keywords": "rapidRTOS, FreeRTOS, RTOS, rapid, arduino",
   "repository":
